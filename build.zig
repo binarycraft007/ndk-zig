@@ -1,6 +1,7 @@
 const std = @import("std");
 
 pub fn build(b: *std.Build) !void {
+    _ = b.addModule("ndk", .{ .source_file = .{ .path = "src/root.zig" } });
     const ndk_version = b.option(usize, "ndk_version", "ndk version") orelse 34;
     const artifact_raw = b.option(usize, "artifact", "artifact") orelse
         @panic("unexpected error, artifact is null");
